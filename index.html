@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayan Hfaiedh | Elite Tech Partnership Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #1a1c23;      
+            --bg-card: #252833;      
+            --accent-yellow: #f4b41a; 
+            --text-white: #ffffff;
+            --text-gray: #9ca3af;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-white);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 8%;
+            background: rgba(26, 28, 35, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { font-weight: 800; font-size: 1.2rem; letter-spacing: 1px; }
+        .logo span { color: var(--accent-yellow); }
+
+        /* Hero Section mit Fokus auf dein Portrait */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12rem 8% 5rem;
+            min-height: 90vh;
+            gap: 4rem;
+        }
+
+        .hero-text { flex: 1; max-width: 600px; }
+        .hero-text span { color: var(--accent-yellow); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+        .hero-text h1 { font-size: 4.5rem; font-weight: 800; margin: 1rem 0; line-height: 1.1; }
+        .hero-text p { color: var(--text-gray); font-size: 1.2rem; margin-bottom: 2.5rem; }
+
+        .hero-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .portrait-frame {
+            width: 420px;
+            height: 520px;
+            background: var(--bg-card);
+            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .portrait-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Sorgt dafür, dass dein Gesicht perfekt zentriert ist */
+        }
+
+        /* Der gelbe Design-Schatten aus deinem Beispiel */
+        .portrait-frame::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-yellow);
+            z-index: -1;
+            border-radius: 20px;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            background: var(--bg-card);
+            padding: 4.5rem 8%;
+            justify-content: space-around;
+            border-bottom: 5px solid var(--accent-yellow);
+        }
+
+        .stat-item { text-align: center; }
+        .stat-item h2 { font-size: 4rem; color: var(--accent-yellow); font-weight: 800; }
+        .stat-item p { color: var(--text-gray); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
+
+        /* Deep Partnership Content */
+        .deal-section {
+            padding: 10rem 8%;
+            background: #13151a;
+        }
+
+        .deal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            padding: 4rem;
+            border-radius: 15px;
+            border-left: 6px solid var(--accent-yellow);
+        }
+
+        .info-card h3 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--accent-yellow); }
+        .info-card p { color: var(--text-gray); font-size: 1.15rem; }
+
+        /* Philosophy High-Impact Box */
+        .highlight-box {
+            background: var(--accent-yellow);
+            color: #1a1c23;
+            padding: 5rem;
+            border-radius: 20px;
+            margin-top: 6rem;
+            text-align: center;
+        }
+
+        .highlight-box h2 { font-size: 3rem; font-weight: 800; margin-bottom: 2rem; line-height: 1.1; }
+        .highlight-box p { font-size: 1.3rem; font-weight: 700; max-width: 800px; margin: 0 auto; }
+
+        /* Contact Section mit Buttons */
+        .contact-area {
+            padding: 10rem 8%;
+            text-align: center;
+        }
+
+        .contact-area h2 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; }
+        
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .btn-action {
+            padding: 1.8rem 4rem;
+            border-radius: 12px;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.4s ease;
+            font-size: 1rem;
+        }
+
+        .btn-yellow { background: var(--accent-yellow); color: #000; }
+        .btn-outline { background: transparent; color: #fff; border: 2px solid var(--accent-yellow); }
+
+        .btn-action:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(244, 180, 26, 0.25); }
+
+        footer { padding: 5rem; text-align: center; color: var(--text-gray); border-top: 1px solid rgba(255,255,255,0.05); }
+
+        @media (max-width: 1000px) {
+            .hero { flex-direction: column; text-align: center; }
+            .hero-image-container { order: -1; }
+            .portrait-frame { width: 300px; height: 380px; }
+            .cta-group { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">RAYAN<span>.</span>H</div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-text">
+            <span>Global Tech Acquisition & Sales</span>
+            <h1>The Bridge Between Industry Leaders & Elite Talent.</h1>
+            <p>I specialize in architecting high-impact partnerships for the world's most innovative hardware manufacturers. My track record is built on the Gold Standard of performance.</p>
+            <a href="#contact" class="btn-action btn-yellow" style="padding: 1rem 2rem; font-size: 0.8rem;">View My Success</a>
+        </div>
+        
+        <div class="hero-image-container">
+            <div class="portrait-frame">
+                <img src="mein-foto.jpg" alt="Rayan Hfaiedh">
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-bar">
+        <div class="stat-item">
+            <h2>34</h2>
+            <p>High-Ticket Deals Closed</p>
+        </div>
+        <div class="stat-item">
+            <h2>500k+</h2>
+            <p>Strategic Creator Network</p>
+        </div>
+        <div class="stat-item">
+            <h2>Elite</h2>
+            <p>Hardware Standards</p>
+        </div>
+    </section>
+
+    <section class="deal-section">
+        <div style="text-align: center;">
+            <h2 style="font-size: 3.5rem;">Proven <span>Execution</span></h2>
+            <p style="color: var(--text-gray); font-size: 1.3rem; margin-top: 1rem;">Scaling tech brands through verified high-conversion partnerships.</p>
+        </div>
+
+        <div class="deal-grid">
+            <div class="info-card">
+                <h3>The 34-Deal Track Record</h3>
+                <p>I have successfully negotiated and closed <strong>34 high-ticket partnerships</strong> between global tech manufacturers and top-tier influencers. Every deal is engineered for maximum market impact and sustained growth.</p>
+            </div>
+            <div class="info-card">
+                <h3>Tier-1 Partnerships</h3>
+                <p>My agency exclusively represents the "Gold Standard." We facilitate synergy between industry-leading hardware providers and creators who demand the absolute peak of processing and graphical performance.</p>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h2>Our Brand Philosophy</h2>
+            <p>We don't just "set meetings." We build the future of tech influence. By focusing on technical authenticity and high-reach engagement, we have created a proven blueprint for success in the hardware industry.</p>
+        </div>
+    </section>
+
+    <section class="contact-area" id="contact">
+        <h2>Ready to Scale?</h2>
+        <p style="color: var(--text-gray);">Connect with my team directly through Instagram or Email.</p>
+        
+        <div class="cta-group">
+            <a href="https://www.instagram.com/nezimealma/" class="btn-action btn-yellow" target="_blank">Instagram Contact</a>
+            <a href="mailto:rayanhfaiedh920@gmail.com" class="btn-action btn-outline">Send Business Inquiry</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Rayan Hfaiedh. Professional Tech Agency. English Language Only.
+    </footer>
+
+</body>
+</html>
