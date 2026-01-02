@@ -12,7 +12,6 @@
             --accent-yellow: #ADD8E6; 
             --text-white: #ffffff;
             --text-gray: #9ca3af;
-            --accent-blue: #a5f3fc;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,7 +39,7 @@
         .logo { font-weight: 800; font-size: 1.2rem; letter-spacing: 1px; }
         .logo span { color: var(--accent-yellow); }
 
-        /* Hero Section */
+        /* Hero Section mit Fokus auf dein Portrait */
         .hero {
             display: flex;
             align-items: center;
@@ -71,13 +70,25 @@
             z-index: 2;
             overflow: hidden;
             border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 20px 20px 0px var(--accent-yellow);
         }
 
         .portrait-frame img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Sorgt dafür, dass dein Gesicht perfekt zentriert ist */
+        }
+
+        /* Der gelbe Design-Schatten aus deinem Beispiel */
+        .portrait-frame::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-yellow);
+            z-index: -1;
+            border-radius: 20px;
         }
 
         /* Stats Bar */
@@ -93,7 +104,7 @@
         .stat-item h2 { font-size: 4rem; color: var(--accent-yellow); font-weight: 800; }
         .stat-item p { color: var(--text-gray); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
 
-        /* Deal Section */
+        /* Deep Partnership Content */
         .deal-section {
             padding: 10rem 8%;
             background: #13151a;
@@ -116,7 +127,20 @@
         .info-card h3 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--accent-yellow); }
         .info-card p { color: var(--text-gray); font-size: 1.15rem; }
 
-        /* Contact Area */
+        /* Philosophy High-Impact Box */
+        .highlight-box {
+            background: var(--accent-yellow);
+            color: #1a1c23;
+            padding: 5rem;
+            border-radius: 20px;
+            margin-top: 6rem;
+            text-align: center;
+        }
+
+        .highlight-box h2 { font-size: 3rem; font-weight: 800; margin-bottom: 2rem; line-height: 1.1; }
+        .highlight-box p { font-size: 1.3rem; font-weight: 700; max-width: 800px; margin: 0 auto; }
+
+        /* Contact Section mit Buttons */
         .contact-area {
             padding: 10rem 8%;
             text-align: center;
@@ -140,47 +164,18 @@
             letter-spacing: 1.5px;
             transition: all 0.4s ease;
             font-size: 1rem;
-            cursor: pointer;
-            border: none;
-            display: inline-block;
         }
 
         .btn-yellow { background: var(--accent-yellow); color: #000; }
-        
-        /* Der spezifische Copy-Button Style */
-        .btn-copy { 
-            background: transparent; 
-            color: #fff; 
-            border: 2px solid var(--accent-blue); 
-            position: relative;
-        }
+        .btn-outline { background: transparent; color: #fff; border: 2px solid var(--accent-yellow); }
 
-        .btn-copy:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(165, 243, 252, 0.2); }
+        .btn-action:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(244, 180, 26, 0.25); }
 
-        /* Toast Nachricht nach dem Kopieren */
-        #copy-toast {
-            visibility: hidden;
-            min-width: 250px;
-            background-color: var(--accent-blue);
-            color: #000;
-            text-align: center;
-            border-radius: 8px;
-            padding: 16px;
-            position: fixed;
-            z-index: 1001;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-weight: 800;
-        }
-
-        #copy-toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
-
-        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
-        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+        footer { padding: 5rem; text-align: center; color: var(--text-gray); border-top: 1px solid rgba(255,255,255,0.05); }
 
         @media (max-width: 1000px) {
             .hero { flex-direction: column; text-align: center; }
+            .hero-image-container { order: -1; }
             .portrait-frame { width: 300px; height: 380px; }
             .cta-group { flex-direction: column; }
         }
@@ -202,7 +197,7 @@
         
         <div class="hero-image-container">
             <div class="portrait-frame">
-                <img src="unnamed.jpg" alt="Rayan Hfaiedh">
+                <img src="mein-foto.jpg" alt="Rayan Hfaiedh">
             </div>
         </div>
     </section>
@@ -231,44 +226,33 @@
         <div class="deal-grid">
             <div class="info-card">
                 <h3>The 34-Deal Track Record</h3>
-                <p>I have successfully negotiated and closed 34 high-ticket partnerships between global tech manufacturers and top-tier influencers.</p>
+                <p>I have successfully negotiated and closed <strong>34 high-ticket partnerships</strong> between global tech manufacturers and top-tier influencers. Every deal is engineered for maximum market impact and sustained growth.</p>
             </div>
             <div class="info-card">
                 <h3>Tier-1 Partnerships</h3>
-                <p>Exclusively representing the Gold Standard in hardware and performance.</p>
+                <p>My agency exclusively represents the "Gold Standard." We facilitate synergy between industry-leading hardware providers and creators who demand the absolute peak of processing and graphical performance.</p>
             </div>
+        </div>
+
+        <div class="highlight-box">
+            <h2>Our Brand Philosophy</h2>
+            <p>We don't just "set meetings." We build the future of tech influence. By focusing on technical authenticity and high-reach engagement, we have created a proven blueprint for success in the hardware industry.</p>
         </div>
     </section>
 
     <section class="contact-area" id="contact">
         <h2>Ready to Scale?</h2>
-        <p style="color: var(--text-gray);">Contact my team via Instagram or copy my email address below.</p>
+        <p style="color: var(--text-gray);">Connect with my team directly through Instagram or Email.</p>
         
         <div class="cta-group">
             <a href="https://www.instagram.com/nezimealma/" class="btn-action btn-yellow" target="_blank">Instagram Contact</a>
-            
-            <button class="btn-action btn-copy" onclick="copyEmail()">Send Business Inquiry</button>
+            <a href="mailto:rayanhfaiedh920@gmail.com" class="btn-action btn-outline">Send Business Inquiry</a>
         </div>
     </section>
 
-    <div id="copy-toast">Email copied to clipboard!</div>
-
     <footer>
-        &copy; 2026 Rayan Hfaiedh. Professional Tech Agency.
+        &copy; 2026 Rayan Hfaiedh. Professional Tech Agency. English Language Only.
     </footer>
 
-    <script>
-        function copyEmail() {
-            const email = "rayanhfaiedh920@gmail.com";
-            navigator.clipboard.writeText(email).then(() => {
-                const toast = document.getElementById("copy-toast");
-                toast.className = "show";
-                setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
-            });
-        }
-    </script>
-
-</body>
-</html>
 </body>
 </html>
